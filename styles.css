@@ -192,16 +192,17 @@ h3 {
     width: 100%;
     z-index: 100;
     transition: all var(--transition-smooth);
-    padding: 0.85rem 0;
+    padding: 1.1rem 0;
     color: var(--white);
-    background: linear-gradient(to bottom, rgba(8, 12, 20, 0.55), rgba(8, 12, 20, 0));
+    background: rgba(0, 0, 0, 0.94);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .site-header.scrolled {
-    background: linear-gradient(to bottom, rgba(8, 12, 20, 0.82), rgba(8, 12, 20, 0.18));
+    background: rgba(0, 0, 0, 0.97);
     backdrop-filter: blur(10px);
     color: var(--white);
-    padding: 0.9rem 0;
+    padding: 1.1rem 0;
     box-shadow: 0 2px 20px rgba(0,0,0,0.05);
 }
 
@@ -341,7 +342,7 @@ h3 {
 .hero {
     min-height: 100vh;
     min-height: 100svh;
-    padding: 7rem 0 3rem;
+    padding: 8.5rem 0 3rem;
     position: relative;
     display: flex;
     align-items: center;
@@ -501,7 +502,7 @@ h3 {
     .hero {
         justify-content: center;
         min-height: 100svh;
-        padding-top: 7.5rem;
+        padding-top: 8.25rem;
     }
     .hero-animated {
         justify-content: center;
@@ -1150,7 +1151,7 @@ h3 {
 
     .site-header,
     .site-header.scrolled {
-        padding: 0.7rem 0;
+        padding: 0.9rem 0;
     }
 
     .header-container {
@@ -1191,7 +1192,7 @@ h3 {
         grid-template-columns: 1fr;
         align-content: center;
         justify-items: center;
-        padding-top: 6.5rem;
+        padding-top: 7.35rem;
         padding-bottom: 2rem;
     }
 
