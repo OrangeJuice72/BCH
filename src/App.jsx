@@ -32,6 +32,12 @@ const testimonials = [
   }
 ];
 
+const heroSayings = [
+  'Building More Than Your Dream Home',
+  'Luxury Homes With A Calm, Clear Process',
+  'Crafted For The Way Your Family Lives'
+];
+
 function getPageFromHash() {
   const rawHash = window.location.hash.replace('#', '').trim().toLowerCase();
   return pages.some((page) => page.key === rawHash) ? rawHash : 'home';
@@ -41,6 +47,7 @@ function App() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activePage, setActivePage] = useState(() => getPageFromHash());
+  const [heroSayingIndex, setHeroSayingIndex] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -121,6 +128,18 @@ function App() {
       clearTimeout(timer);
       observer.disconnect();
     };
+  }, [activePage]);
+
+  useEffect(() => {
+    if (activePage !== 'home') {
+      return undefined;
+    }
+
+    const sayingInterval = window.setInterval(() => {
+      setHeroSayingIndex((currentIndex) => (currentIndex + 1) % heroSayings.length);
+    }, 3200);
+
+    return () => window.clearInterval(sayingInterval);
   }, [activePage]);
 
   const navigateTo = (pageKey) => {
@@ -291,7 +310,9 @@ function App() {
           <div className="hero-grid-lines"></div>
           <div className="hero-content fade-in-up">
             <p className="hero-badge fade-in-up">Indianapolis Custom Homes</p>
-            <h2 className="h1-style">Building More Than<br />Your Dream Home</h2>
+            <h2 className="h1-style hero-saying" key={heroSayings[heroSayingIndex]}>
+              {heroSayings[heroSayingIndex]}
+            </h2>
             <p className="hero-copy">Modern, modern farmhouse, barndominium-inspired, and farmhouse homes built in downtown Indianapolis and the surrounding areas with elevated craftsmanship and a steady, well-led process.</p>
             <div className="hero-actions">
               <a href="#builds" className="btn btn-primary" onClick={(event) => handleNavClick(event, 'builds')}>Explore Our Builds</a>
